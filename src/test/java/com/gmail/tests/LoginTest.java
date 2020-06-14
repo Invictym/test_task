@@ -9,9 +9,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginTest() {
-//        GmailMainForm gmailMainForm = new GmailMainForm();
-//        gmailMainForm.login();
-
         GmailLoginForm gmailLoginForm = new GmailLoginForm();
         gmailLoginForm.login("alektester13@gmail.com", "112233al");
     }
