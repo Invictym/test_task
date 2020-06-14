@@ -1,12 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TutSuite" verbose="1" >
-    <test name="TutByTest" >
+    <test name="Gmail test" >
         <parameter name="login" value="petrov.vas@tut.by"/>
         <parameter name="password" value="3750000kirasuda"/>
         <classes>
-            <class name="by.tut.tests.TutByTest">
-            </class>
+            <class name="com.gmail.tests.LoginTest"/>
+            <class name="com.gmail.tests.LogoutTest"/>
+            <class name="com.gmail.tests.SendEmailTest"/>
         </classes>
     </test>
 

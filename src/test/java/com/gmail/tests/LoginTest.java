@@ -1,7 +1,6 @@
 package com.gmail.tests;
 
 import com.gmail.forms.GmailLoginForm;
-import com.gmail.forms.GmailMainForm;
 import framework.BaseTest;
 import org.testng.annotations.Test;
 

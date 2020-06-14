@@ -6,7 +6,6 @@ import org.testng.Assert;
 
 import java.util.Date;
 
-
 public abstract class BaseForm extends BaseEntity {
 
   public String title;
