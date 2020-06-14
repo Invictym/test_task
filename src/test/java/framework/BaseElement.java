@@ -20,7 +20,6 @@ public abstract class BaseElement extends BaseEntity {
             .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
   }
 
-
   public void click() {
     waitForElementPresent();
     getBrowser().getDriver().findElement(locator).click();
@@ -44,10 +43,10 @@ public abstract class BaseElement extends BaseEntity {
     Assert.assertTrue(result);
     return text;
   }
+
   public By getLocator() {
     return locator;
   }
-
 
   public boolean elementIsDisplayed() {
     return getBrowser().getDriver().findElement(locator).isDisplayed();
@@ -58,5 +57,4 @@ public abstract class BaseElement extends BaseEntity {
     getBrowser().getDriver().findElement(locator).sendKeys(key);
     System.out.println(name + " set text: " + key);
   }
-
 }
