@@ -1,5 +1,6 @@
 package framework;
 
+import framework.logger.Log;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeTest;
 
@@ -11,7 +12,7 @@ public class BaseTest extends BaseEntity {
 
   @BeforeTest
   public void setUp(ITestContext context) {
-    System.out.println("Get parametrs");
+    Log.info("Get params");
     parameters = context.getCurrentXmlTest().getAllParameters();
   }
 }

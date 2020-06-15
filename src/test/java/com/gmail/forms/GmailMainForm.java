@@ -15,7 +15,7 @@ public class GmailMainForm extends BaseForm {
     public GmailWriteEmailDialogForm gmailWriteEmailDialogForm;
 
     public GmailMainForm() {
-        super(By.xpath("//*"), "Gmail main form");
+        super(By.xpath("//a[@href=\"#inbox\"]//img"), "Gmail main form");
     }
 
     public boolean isEmailDisplayed(String sub) {

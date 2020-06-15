@@ -1,6 +1,5 @@
 package framework.browser;
 
-import framework.utils.FileWorker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,13 +18,12 @@ public class BrowserFactory {
   private static FirefoxOptions options = new FirefoxOptions();
   private static ChromeOptions optionsChrome = new ChromeOptions();
   private static Map<String, Object> prefs = new HashMap<>();
-  private static FileWorker fileWorker = new FileWorker("config.properties");
 
   private BrowserFactory() {}
 
-  protected static WebDriver init() {
+  protected static WebDriver init(String browser, int timeout) {
     String os = System.getProperty("os.name").toLowerCase();
-    switch (fileWorker.getProperties("browser")) {
+    switch (browser) {
       case "chrome":
         if (os.contains("win")) {
           System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
@@ -46,7 +44,7 @@ public class BrowserFactory {
         driver = new FirefoxDriver(options);
         break;
     }
-    driver.manage().timeouts().implicitlyWait(Integer.parseInt(fileWorker.getProperties("timeout")), TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
     return driver;
   }
 

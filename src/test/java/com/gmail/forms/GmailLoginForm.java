@@ -1,5 +1,6 @@
 package com.gmail.forms;
 
+import com.gmail.entity.User;
 import framework.BaseForm;
 import framework.ui.Button;
 import framework.ui.Input;
@@ -16,10 +17,10 @@ public class GmailLoginForm extends BaseForm {
         super(By.id("initialView"), "Gmail login page");
     }
 
-    public void login(String user, String pass) {
-        emailInp.sendKey(user);
+    public void login(User user) {
+        emailInp.sendKey(user.getEmail());
         nextBtn.click();
-        passInp.sendKey(pass);
+        passInp.sendKey(user.getPass());
         passNextBtn.click();
     }
 }

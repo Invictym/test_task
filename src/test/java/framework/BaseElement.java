@@ -4,6 +4,7 @@ import framework.logger.Log;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import framework.config.AutomationAppContext;
 import org.testng.Assert;
 
 public abstract class BaseElement extends BaseEntity {
@@ -17,7 +18,7 @@ public abstract class BaseElement extends BaseEntity {
   }
 
   public void waitForElementPresent() {
-    waitForElementPresent(Integer.parseInt(fileWorker.getProperties("timeout")));
+    waitForElementPresent(AutomationAppContext.getConfig().getTimeout());
   }
 
   public void waitForElementPresent(int timeout) {

@@ -1,36 +1,37 @@
 package framework;
 
 import framework.browser.Browser;
-import framework.utils.FileWorker;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import framework.config.AutomationAppContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseEntity {
 
-  FileWorker fileWorker = new FileWorker("config.properties");
-
-  @BeforeSuite
+  @BeforeClass
   public void init() {
-    getBrowser().navigate(fileWorker.getProperties("url"));
+    getBrowser().navigate(AutomationAppContext.getConfig().getUrl());
   }
 
   public Browser getBrowser() {
-    return Browser.getBrowser();
+    return Browser.getBrowser(AutomationAppContext.getConfig().getBrowser(), AutomationAppContext.getConfig().getTimeout());
   }
 
-  @AfterSuite
+  @AfterClass
   public void exit() {
-    getBrowser().getDriver().quit();
+    getBrowser().close();
   }
 
   public void openNewWindow() {
-    new WebDriverWait(getBrowser().getDriver(), Integer.parseInt(fileWorker.getProperties("timeout")))
+    new WebDriverWait(getBrowser().getDriver(), AutomationAppContext.getConfig().getTimeout())
         .until(new ExpectedCondition<Boolean>() {
           @Override
           public Boolean apply(WebDriver driver) {

@@ -2,8 +2,11 @@
 
 <suite name="TutSuite" verbose="1" >
     <test name="Gmail test" >
-        <parameter name="login" value="petrov.vas@tut.by"/>
-        <parameter name="password" value="3750000kirasuda"/>
+        <parameter name="login" value="alektester13@gmail.com"/>
+        <parameter name="password" value="112233al"/>
+        <parameter name="send_address" value="alektester13@gmail.com"/>
+        <parameter name="email_subject" value="t"/>
+        <parameter name="email_body" value="t"/>
         <classes>
             <class name="com.gmail.tests.LoginTest"/>
             <class name="com.gmail.tests.LogoutTest"/>
